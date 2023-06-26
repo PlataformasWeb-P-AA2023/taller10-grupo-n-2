@@ -37,4 +37,4 @@ class Barrio(models.Model):
                 on_delete=models.CASCADE)
     
     def __str__(self):
-        return "%s - %d - %s - %d" % (self.nombre, self.numVivienda, self.numParques, self.numEdificios)
+        return "%s - %d - %s - %d" % (self.nombre.upper(), self.numVivienda, self.numParques, self.numEdificios)
