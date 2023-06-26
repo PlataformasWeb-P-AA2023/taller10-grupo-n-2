@@ -5,8 +5,8 @@ from django.db import models
 
 class Parroquia(models.Model):
     opciones_tipo_Parroquia = (
-        ('urb', 'Urbano'),
-        ('rur', 'Rural'),
+        ('urbano', 'Urbano'),
+        ('rural', 'Rural'),
     )
 
     nombre = models.CharField(max_length=30)
@@ -33,7 +33,7 @@ class Barrio(models.Model):
                 choices = opciones_Parques)
     numEdificios = models.IntegerField()
     
-    parroquia = models.ForeignKey(Parroquia, related_name = 'lasparroquias',
+    parroquia = models.ForeignKey(Parroquia, related_name = 'los_barrios',
                 on_delete=models.CASCADE)
     
     def __str__(self):

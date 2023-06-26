@@ -1,0 +1,9 @@
+<h2> {{parroquia}}</h2>
+<ul>        
+    {% for x in barrio %}
+      <li>
+          <p>{{x}} - [<a href="{% url 'editar_barrio' x.id %}">editar barrio</a>]</p>
+      </li>
+    {% endfor %}
+</ul>
+[<a href="{% url 'index' %}">inicio</a>]
