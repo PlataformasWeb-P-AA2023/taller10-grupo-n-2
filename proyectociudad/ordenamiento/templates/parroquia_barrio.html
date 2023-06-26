@@ -1,19 +1,27 @@
-<h2>Listado de Parroquias y Barrios</h3>
+<h2>Listado de Parroquias y Barrios</h2>
 <h3>Número de Parroquias {{ numero_parroquia }}</h3>
 
 {% for e in parroquia %}
-    
-  {{e}}  - [<a href="{% url 'obtener_Barrios' e.id%}">ver barrios</a>] -
-           [<a href="{% url 'editar_parroquia' e.id%}">editar Parroquia</a>]<br/>
-  <ul>
-    
-  {% for x in e.los_barrios.all %}
-      <li>
-          <p>{{x.nombre}}</p>
-      </li>
 
-  {% endfor %}
+  {{ e }} - [<a href="{% url 'obtener_Barrios' e.id %}">ver barrios</a>] - [<a href="{% url 'editar_parroquia' e.id %}">editar Parroquia</a>]<br/>
+  <ul>
+    <table>
+      <tr>
+        <th>nombre</th>
+        <th>Viviendas</th>
+        <th>PARQUES</th>
+        <th>Edificios</th>
+      </tr>
+      {% for x in e.los_barrios.all %}
+        <tr>
+          <td>{{ x.nombre }}</td>
+          <td>{{ x.numVivienda }}</td>
+          <td>{{ x.numParques }}</td>
+          <td>{{ x.numEdificios }}</td>
+        </tr>
+      {% endfor %}
+    </table>
   </ul>
-  [<a href="{% url 'crear_barrio_parroquia' e.id%}">+Barrio</a>]<Br>
+  [<a href="{% url 'crear_barrio_parroquia' e.id %}">+Barrio</a>]<br>
   </li> 
 {% endfor %}
